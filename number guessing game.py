@@ -8,15 +8,19 @@ if b == "yes" or b == "Yes" or b == "y" or b == "Y":
         x = -1                       
         c = 0
         while x != a: 
-                        
-            x = int(input("enter a number "))
-            if x == a:
+            if c <7:
+
+             x = int(input("enter a number "))
+             c += 1
+             if x == a:
                 print("you have guessed the number!")
-            elif x < a:
+             elif x < a:
                 print("you have guessed a smaller number than the random number")
-            elif x > a:
+             elif x > a:
                 print("you have guessed a larger number than the random number")
-            c += 1
+             if c >= 7 and x != a:       # ← check after every guess
+                print(f"you have used all your attempts! the number was {a}")
+                break    
 
         print("you guessed the number in {} attempts!".format(c))
         b = input("do you want to play again? (yes/no) ")  
